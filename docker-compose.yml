@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: bot
+    environment:
+      - BOT_TOKEN=Your_token_from_botfather
+      - AUTHORIZED_USERS=ID,ID,ID # Events add and delete
+      - OWNER_ID=ID
+      - ALLOWED_CHAT_IDS=ID,-ID # work in chats
+      - DATABASE_PATH=bot.db  # db path sqlite3
+    volumes:
+      - ./bot:/app/bot
+    restart: unless-stopped
+
